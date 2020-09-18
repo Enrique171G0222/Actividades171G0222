@@ -1,0 +1,25 @@
+﻿@model Villansicos.Models.Villancico
+@{
+    Layout = "_Layout";
+}
+
+<nav>
+    <a href="javascript:window.history.back();">Regresar</a>
+</nav>
+<h2>@Model.Nombre</h2>
+<h3>@Model.Compositor, @Model.Anyo</h3>
+
+<iframe width="560" height="315" src="@Model.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<article @Model.Letra>
+    @Html.Raw(Model.Letra);
+    @*Letra del villancico<br />
+        Letra del villancico<br />
+        Letra del villancico<br />
+        Letra del villancico<br />
+        <br /><br />
+        Letra del villancico<br />
+        Letra del villancico<br />
+        Letra del villancico<br />
+        Letra del villancico<br />*@
+</article>
