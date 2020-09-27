@@ -1,0 +1,41 @@
+﻿@model Routing.Models.PeliculasViewModel
+@{
+    Layout = "_Layout";
+}
+
+<div id="principalVer">
+
+    <div class="container">
+        <img class="image1" src="~/images/banners/@(Model.Id)_b.jpg">
+        <div class="overlay">
+            <img class="image2" src="~/images/banners/@(Model.Id)_b.png">
+        </div>
+
+    </div>
+
+    <div class="datosPelicula">
+        <h1>@Model.Nombre</h1>
+        <h2>@Model.NombreOriginal * @(Model.FechaEstreno==null?"":Model.FechaEstreno.Value.ToShortDateString())</h2>
+            <p>
+                @Model.Descripción
+            </p>
+
+
+            <div class="personajes">
+                <h2>Personajes</h2>
+                @foreach (var person in Model.Apariciones)
+                {
+                    <div>
+                        <a>
+                            <img src="~/images/personajes/@(person.IdPersonaje).jpg" alt="@person.IdPersonajeNavigation.Nombre">
+                        </a>
+                        <div class="nombrePelicula">
+                            <p>@person.IdPersonajeNavigation.Nombre</p>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+    </div>
+</div>

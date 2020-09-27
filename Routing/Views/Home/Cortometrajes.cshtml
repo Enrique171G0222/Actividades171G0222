@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Routing.Models.CortosViewModel>
+@{
+    Layout = "_Layout";
+}
+@foreach (var categorias in Model)
+{
+    <div id="principalPeliculas">
+
+        <div id="pelis">
+            <h1>@categorias.NombreCategoria</h1>
+            @foreach (var c in categorias.Cortometraje)
+            {
+                <div>
+                    <a class="imgPelicula" href="~/Home/InfoCortos/@c.Nombre.Replace(" ", "-")">
+                        <img src="~/images/portadas/@(c.Id)_pc.jpg" alt="@c.Nombre">
+                    </a>
+                    <div class="nombrePelicula">
+                        <p>@c.Nombre</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
