@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Services.Models.Clase>
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="slides">
+    @{Random rnd = new Random();
+        var img = rnd.Next(1, 6);
+        <img src="~/images/carousel@(img).jpg">
+        }
+</div>
+
+<h1>Clasificación de los vertebrados</h1>
+
+<div class="clases">
+    @foreach (var animales in Model)
+	{
+     <div>
+        <a href="~/Especie/@animales.Nombre.Replace(" ", "-")">
+            <img src="~/clases/@(animales.Id).jpg">
+            <h1>@animales.Nombre</h1>
+            <p>@animales.Descripcion</p>
+        </a>
+     </div> 
+	}
+        
+</div>
